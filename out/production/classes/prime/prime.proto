@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package prime;
+
+option java_package = "com.proto.prime";
+option java_multiple_files = true;
+
+message PrimeNumberRequest {
+    int32 number = 1;
+}
+
+message DecompositionResponse {
+    int32 number = 1;
+}
+
+service PrimeDecompositionService {
+    rpc Decompose(PrimeNumberRequest) returns (stream DecompositionResponse) {};
+}
+
